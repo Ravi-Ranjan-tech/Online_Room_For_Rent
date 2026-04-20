@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Rentals - Find Your Perfect Stay</title>
+    <meta name="description" content="Discover unique homes and luxury rental experiences around the world. Book your perfect stay with premium amenities and exceptional service.">
+    <meta name="keywords" content="luxury rentals, vacation homes, premium accommodation, room for rent">
+    <meta name="author" content="Luxury Rentals">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Luxury Rentals - Find Your Perfect Stay">
+    <meta property="og:description" content="Discover unique homes and luxury rental experiences around the world">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luxury Rentals - Find Your Perfect Stay">
+    <meta name="twitter:description" content="Discover unique homes and luxury rental experiences around the world">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200&q=80">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://luxuryrentals.com">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.0/mapbox-gl.css" rel="stylesheet" />
+    
+    <style>
+        /* ============================================
+           🎨 LUXURY RENTALS DESIGN SYSTEM
+           ENHANCED WITH PERFECT CONTRAST & ANIMATIONS
+           ============================================ */
+        
+        :root {
+            /* ============================================
+               LIGHT MODE COLORS - PERFECT CONTRAST
+               ============================================ */
+            --background: 30 20% 98%;           /* Very light cream background */
+            --foreground: 25 25% 8%;            /* Very dark text for maximum contrast */
+            --card: 0 0% 100%;                  /* Pure white cards */
+            --card-foreground: 25 25% 5%;      /* Even darker text on cards */
+            
+            /* Brand Colors - LUXURY ORANGE THEME */
+            --primary: 25 95% 53%;              /* Luxury orange */
+            --primary-foreground: 0 0% 98%;     /* White text on orange */
+            --primary-glow: 35 100% 65%;        /* Lighter orange glow */
+            --primary-dark: 20 85% 45%;         /* Darker orange for contrast */
+            
+            /* Secondary Colors - ENHANCED CONTRAST */
+            --secondary: 40 30% 95%;
+            --secondary-foreground: 25 25% 8%;
+            --muted: 30 15% 90%;               /* Better contrast muted background */
+            --muted-foreground: 25 20% 15%;    /* Much darker muted text */
+            --accent: 45 85% 85%;
+            --accent-foreground: 25 25% 8%;
+            
+            /* Utility Colors */
+            --border: 30 20% 82%;
+            --input: 30 20% 94%;
+            --ring: 25 95% 53%;
+            --destructive: 0 84% 60%;
+            --destructive-foreground: 0 0% 98%;
+            
+            /* Social Media Colors */
+            --whatsapp: 120 100% 25%;
+            --instagram: 315 100% 55%;
+            --linkedin: 201 100% 35%;
+            --facebook: 221 44% 41%;
+            --twitter: 203 89% 53%;
+            --youtube: 0 100% 50%;
+            --pinterest: 0 100% 40%;
+            --google: 4 90% 58%;
+            
+            /* Gradients - Enhanced */
+            --gradient-primary: linear-gradient(135deg, hsl(25, 95%, 53%), hsl(35, 100%, 65%));
+            --gradient-hero: linear-gradient(135deg, hsl(25, 95%, 53%) 0%, hsl(35, 100%, 65%) 100%);
+            --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(30, 20%, 98%) 100%);
+            --gradient-button: linear-gradient(135deg, hsl(25, 95%, 53%) 0%, hsl(20, 85%, 45%) 100%);
+            
+            /* Shadows - More Dynamic */
+            --shadow-elegant: 0 10px 30px -10px hsla(25, 95%, 53%, 0.3);
+            --shadow-card: 0 6px 20px hsla(0, 0%, 0%, 0.12);
+            --shadow-glow: 0 0 40px hsla(35, 100%, 65%, 0.4);
+            --shadow-hover: 0 15px 35px hsla(25, 95%, 53%, 0.4);
+            
+            /* Transitions - Smooth & Bouncy */
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-elastic: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            /* Animation Durations */
+            --anim-fast: 0.2s;
+            --anim-normal: 0.3s;
+            --anim-slow: 0.6s;
+            --anim-bounce: 0.4s;
+            
+            /* Border Radius */
+            --radius: 0.75rem;
+            --radius-large: 1rem;
+            --radius-small: 0.5rem;
+        }
+
+        .dark {
+            /* ============================================
+               DARK MODE COLORS - ENHANCED CONTRAST  
+               ============================================ */
+            --background: 25 15% 4%;            /* Very dark background */
+            --foreground: 30 25% 98%;           /* Very light text */
+            --card: 25 15% 7%;                  /* Dark cards */
+            --card-foreground: 30 25% 98%;     /* Light text on dark cards */
+            
+            /* Brand Colors - Adjusted for dark mode */
+            --primary: 35 100% 65%;
+            --primary-foreground: 25 15% 4%;
+            --primary-glow: 45 100% 70%;
+            --primary-dark: 40 90% 55%;
+            
+            /* Secondary Colors - Dark Mode ENHANCED CONTRAST */
+            --secondary: 25 15% 10%;
+            --secondary-foreground: 30 25% 98%;
+            --muted: 25 15% 8%;                /* Darker muted background */
+            --muted-foreground: 30 25% 85%;    /* Much lighter muted text */
+            --accent: 35 70% 20%;
+            --accent-foreground: 30 25% 98%;
+            
+            /* Utility Colors - Dark Mode */
+            --border: 25 15% 12%;
+            --input: 25 15% 8%;
+            --ring: 35 100% 65%;
+            
+            /* Gradients - Dark Mode Enhanced */
+            --gradient-primary: linear-gradient(135deg, hsl(35, 100%, 65%), hsl(45, 100%, 70%));
+            --gradient-hero: linear-gradient(135deg, hsl(35, 100%, 65%) 0%, hsl(45, 100%, 70%) 100%);
+            --gradient-card: linear-gradient(145deg, hsl(25, 15%, 7%) 0%, hsl(25, 15%, 9%) 100%);
+            --gradient-button: linear-gradient(135deg, hsl(35, 100%, 65%) 0%, hsl(40, 90%, 55%) 100%);
+        }
+
+        /* ============================================
+           ENHANCED ANIMATIONS & KEYFRAMES
+           ============================================ */
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOutRight {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200px 0;
+            }
+            100% {
+                background-position: calc(200px + 100%) 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(1deg); }
+            75% { transform: rotate(-1deg); }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* ============================================
+           BASE STYLES - PERFECT CONTRAST
+           ============================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.6;
+            transition: var(--transition-smooth);
+        }
+
+        /* ============================================
+           ENHANCED TEXT CONTRAST UTILITIES
+           ============================================ */
+        .text-contrast { 
+            color: hsl(var(--foreground)) !important; 
+            font-weight: 500;
+        }
+        .text-muted-contrast { 
+            color: hsl(var(--muted-foreground)) !important; 
+            font-weight: 400;
+        }
+        .bg-contrast { 
+            background-color: hsl(var(--card)); 
+        }
+
+        /* Enhanced visibility classes */
+        .text-primary-contrast {
+            color: hsl(var(--primary)) !important;
+            font-weight: 600;
+        }
+
+        .text-white-contrast {
+            color: white !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* ============================================
+           ANIMATION UTILITY CLASSES
+           ============================================ */
+           
+        .animate-fade-in { animation: fadeInUp var(--anim-normal) ease-out; }
+        .animate-scale-in { animation: fadeInScale var(--anim-fast) ease-out; }
+        .animate-pulse { animation: pulse 2s infinite; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+        .animate-bounce { animation: bounce 1s infinite; }
+        .animate-wiggle { animation: wiggle 0.5s ease-in-out; }
+        .animate-heartbeat { animation: heartbeat 1s ease-in-out infinite; }
+        
+        .hover-scale { transition: var(--transition-bounce); }
+        .hover-scale:hover { transform: scale(1.05); }
+        
+        .hover-lift { transition: var(--transition-smooth); }
+        .hover-lift:hover { transform: translateY(-3px); }
+        
+        .hover-glow { transition: var(--transition-smooth); }
+        .hover-glow:hover { box-shadow: var(--shadow-glow); }
+
+        /* ============================================
+           HEADER STYLES - ENHANCED
+           ============================================ */
+
+        .header-bg {
+            background: hsla(var(--background), 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid hsl(var(--border));
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+        }
+
+        .gradient-primary {
+            background: var(--gradient-primary);
+        }
+
+        .nav-link {
+            color: hsl(var(--foreground));
+            text-decoration: none;
+            transition: var(--transition-bounce);
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-small);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, hsla(var(--primary), 0.1), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover::before {
+            left: 100%;
+        }
+
+        .nav-link:hover {
+            background-color: hsl(var(--muted));
+            color: hsl(var(--primary));
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           ENHANCED THEME SWITCH
+           ============================================ */
+        .theme-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .switch {
+            width: 52px;
+            height: 28px;
+            background: hsl(var(--muted));
+            border: 2px solid hsl(var(--border));
+            border-radius: 14px;
+            position: relative;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            box-shadow: inset 0 2px 4px hsla(0, 0%, 0%, 0.1);
+        }
+
+        .switch-thumb {
+            width: 20px;
+            height: 20px;
+            background: hsl(var(--foreground));
+            border-radius: 50%;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            transition: var(--transition-elastic);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .switch.checked {
+            background: var(--gradient-primary);
+            border-color: hsl(var(--primary));
+            box-shadow: inset 0 2px 4px hsla(var(--primary), 0.2);
+        }
+
+        .switch.checked .switch-thumb {
+            transform: translateX(24px);
+            background: hsl(var(--primary-foreground));
+        }
+
+        .switch:hover .switch-thumb {
+            transform: scale(1.1);
+        }
+
+        .switch.checked:hover .switch-thumb {
+            transform: translateX(24px) scale(1.1);
+        }
+
+        /* ============================================
+           HERO SECTION - ENHANCED ANIMATIONS
+           ============================================ */
+
+        .hero-gradient {
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 30%, hsla(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+            color: white !important;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            color: rgba(255, 255, 255, 0.95) !important;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        /* ============================================
+           ENHANCED SEARCH BAR
+           ============================================ */
+        .hero-search {
+            background: hsl(var(--card));
+            border-radius: var(--radius-large);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-elegant);
+            margin-top: 2rem;
+            max-width: 100%;
+            border: 2px solid hsl(var(--border));
+            animation: fadeInScale 1.2s ease-out 0.4s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-search::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-primary);
+            animation: shimmer 2s infinite;
+        }
+
+        .hero-search h3 {
+            color: hsl(var(--foreground)) !important;
+            font-weight: 600;
+        }
+
+        .hero-search input {
+            padding: 1.75rem;
+            font-size: 1.25rem;
+            border: 2px solid hsl(var(--border));
+            border-radius: var(--radius);
+            background: hsl(var(--background));
+            color: hsl(var(--foreground));
+            transition: var(--transition-bounce);
+            min-height: 70px;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .hero-search input:focus {
+            outline: none;
+            border-color: hsl(var(--primary));
+            box-shadow: 0 0 0 4px hsla(25, 95%, 53%, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .hero-search input::placeholder {
+            color: hsl(var(--muted-foreground));
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            background: var(--gradient-button);
+            color: hsl(var(--primary-foreground));
+            padding: 1.75rem 2.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            box-shadow: var(--shadow-card);
+            min-height: 70px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           ENHANCED PROPERTY CARDS WITH AUTO-CAROUSEL
+           ============================================ */
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .property-card {
+            background: hsl(var(--card));
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-elastic);
+            border: 2px solid hsl(var(--border));
+            position: relative;
+            animation: fadeInScale var(--anim-slow) ease-out;
+        }
+
+        .property-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: var(--transition-smooth);
+        }
+
+        .property-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-hover);
+            border-color: hsl(var(--primary));
+        }
+
+        .property-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .property-images {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .property-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1.05);
+        }
+
+        .property-image.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Enhanced navigation arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid hsl(var(--border));
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            opacity: 0;
+            transition: var(--transition-bounce);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: hsl(var(--foreground));
+            font-weight: bold;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .property-card:hover .nav-arrow {
+            opacity: 1;
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        .nav-arrow:hover {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            transform: translateY(-50%) scale(1.15);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .nav-arrow.prev { left: 15px; }
+        .nav-arrow.next { right: 15px; }
+
+        /* Enhanced image dots */
+        .image-dots {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .image-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            backdrop-filter: blur(5px);
+        }
+
+        .image-dot:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.2);
+        }
+
+        .image-dot.active {
+            background: white;
+            transform: scale(1.4);
+            border-color: white;
+            box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        /* Auto-carousel indicator */
+        .carousel-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+            z-index: 3;
+        }
+
+        .carousel-paused .carousel-indicator {
+            background: rgba(255, 107, 53, 0.9);
+        }
+
+        /* ============================================
+           ENHANCED PROPERTY CARD CONTENT
+           ============================================ */
+        .property-card h3 {
+            color: hsl(var(--foreground)) !important;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .property-card .rating {
+            background: hsl(var(--muted));
+            color: hsl(var(--muted-foreground));
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border: 1px solid hsl(var(--border));
+        }
+
+        .property-card .price {
+            color: hsl(var(--foreground)) !important;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .amenity-tag {
+            background: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+            padding: 0.375rem 0.875rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border: 1px solid hsl(var(--border));
+            transition: var(--transition-smooth);
+        }
+
+        .amenity-tag:hover {
+            background: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            transform: translateY(-1px);
+        }
+
+        /* ============================================
+           ENHANCED BUTTONS
+           ============================================ */
+        .btn-call {
+            background: hsl(var(--whatsapp));
+            color: white;
+            border: none;
+            border-radius: var(--radius-small);
+            font-weight: 600;
+            padding: 0.875rem 1.25rem;
+            transition: var(--transition-bounce);
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-call::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-call:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-call:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-elegant);
+            background: hsl(120, 100%, 20%);
+            animation: heartbeat 0.6s ease-in-out;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: hsl(var(--foreground));
+            border: 2px solid hsl(var(--border));
+            border-radius: var(--radius-small);
+            font-weight: 600;
+            padding: 0.875rem 1.25rem;
+            transition: var(--transition-bounce);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: var(--transition-smooth);
+            z-index: -1;
+        }
+
+        .btn-outline:hover::before {
+            left: 0;
+        }
+
+        .btn-outline:hover {
+            color: hsl(var(--primary-foreground));
+            border-color: hsl(var(--primary));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .btn-secondary {
+            background: hsl(var(--secondary));
+            color: hsl(var(--secondary-foreground));
+            border: 2px solid hsl(var(--border));
+            border-radius: var(--radius-small);
+            font-weight: 600;
+            padding: 0.75rem 1rem;
+            transition: var(--transition-bounce);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: hsl(var(--muted));
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-card);
+        }
+
+        .btn-secondary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* ============================================
+           ENHANCED CONTACT SECTION
+           ============================================ */
+
+        .contact-section {
+            background: linear-gradient(135deg, hsl(var(--muted) / 0.3), hsl(var(--accent) / 0.2));
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="hsl(25,95%,53%)" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .contact-card {
+            background: hsl(var(--card));
+            border-radius: var(--radius-large);
+            padding: 3rem;
+            box-shadow: var(--shadow-elegant);
+            border: 2px solid hsl(var(--border));
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-icon-wrapper {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2.5rem;
+            box-shadow: var(--shadow-card);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .contact-title {
+            color: hsl(var(--foreground)) !important;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-subtitle {
+            color: hsl(var(--muted-foreground)) !important;
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* ============================================
+           ENHANCED SOCIAL MEDIA ICONS
+           ============================================ */
+
+        .social-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            transition: var(--transition-bounce);
+            box-shadow: var(--shadow-card);
+            font-size: 1.4rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover::before {
+            width: 100px;
+            height: 100px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.15) rotate(5deg);
+            box-shadow: var(--shadow-hover);
+            animation: wiggle 0.5s ease-in-out;
+        }
+
+        /* Platform-specific colors */
+        .social-icon.whatsapp { background: hsl(var(--whatsapp)); }
+        .social-icon.instagram { background: hsl(var(--instagram)); }
+        .social-icon.linkedin { background: hsl(var(--linkedin)); }
+        .social-icon.facebook { background: hsl(var(--facebook)); }
+        .social-icon.twitter { background: hsl(var(--twitter)); }
+        .social-icon.youtube { background: hsl(var(--youtube)); }
+
+        /* ============================================
+           ENHANCED MODALS
+           ============================================ */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeInScale var(--anim-normal) ease-out;
+        }
+
+        .modal-content {
+            background: hsl(var(--card));
+            border-radius: var(--radius-large);
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            border: 2px solid hsl(var(--border));
+            box-shadow: var(--shadow-elegant);
+            transform: scale(0.95);
+            animation: fadeInScale var(--anim-normal) ease-out;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            border-bottom: 2px solid hsl(var(--border));
+            background: linear-gradient(135deg, hsl(var(--muted) / 0.5), hsl(var(--accent) / 0.3));
+        }
+
+        .modal-title {
+            color: hsl(var(--foreground)) !important;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: hsl(var(--muted-foreground));
+            padding: 0.75rem;
+            border-radius: 50%;
+            transition: var(--transition-bounce);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-button:hover {
+            color: hsl(var(--foreground));
+            background: hsl(var(--muted));
+            transform: scale(1.1) rotate(90deg);
+        }
+
+        /* ============================================
+           ENHANCED FOOTER
+           ============================================ */
+
+        .footer-bg {
+            background: hsl(var(--card));
+            border-top: 3px solid hsl(var(--primary));
+            position: relative;
+        }
+
+        .footer-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            animation: shimmer 3s infinite;
+        }
+
+        .footer-link {
+            color: hsl(var(--muted-foreground));
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: hsl(var(--primary));
+            transition: var(--transition-smooth);
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        .footer-link:hover {
+            color: hsl(var(--primary));
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            border-top: 2px solid hsl(var(--border));
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: hsl(var(--muted-foreground));
+            font-size: 0.875rem;
+        }
+
+        /* ============================================
+           ENHANCED FLOATING CONTACT BUTTON
+           ============================================ */
+        .contact-fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 1.75rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-elegant);
+            transition: var(--transition-bounce);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .contact-fab:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: var(--shadow-glow);
+            animation: heartbeat 0.6s ease-in-out infinite;
+        }
+
+        .contact-fab::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN - ENHANCED
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero-search {
+                padding: 2rem 1.5rem;
+            }
+            
+            .hero-search input,
+            .btn-primary {
+                min-height: 60px;
+                font-size: 1rem;
+                padding: 1.25rem;
+            }
+            
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .nav-link {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .contact-card {
+                padding: 2rem;
+            }
+
+            .contact-icon-wrapper {
+                width: 80px;
+                height: 80px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-fab {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                bottom: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .properties-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .property-images {
+                height: 220px;
+            }
+        }
+
+        /* ============================================
+           LOADING & PERFORMANCE ANIMATIONS
+           ============================================ */
+        .loading {
+            background: linear-gradient(90deg, transparent, hsla(var(--primary), 0.3), transparent);
+            background-size: 200px 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Intersection Observer Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition-smooth);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: var(--transition-bounce);
+        }
+
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ============================================
+         📝 WEBSITE CONFIGURATION SECTION
+         🎯 EASY EDIT - MODIFY THIS TO CHANGE CONTENT
+         ============================================ -->
+    
+    <script>
+        /* ============================================
+           📞 CONTACT INFORMATION - CHANGE THESE
+           ============================================ */
+        const CONTACT_INFO = {
+            email: 'roomforrent@gmail.com',
+            phone: '+1 (555) 123-4567',
+            whatsappNumber: '1234567890', // Numbers only, no spaces or +
+            businessHours: '24/7 Support Available'
+        };
+        
+        /* ============================================
+           🌐 SOCIAL MEDIA LINKS - UPDATE WITH YOUR LINKS
+           ============================================ */
+        const SOCIAL_LINKS = {
+            whatsapp: `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=Hi! I'm interested in your luxury rental properties.`,
+            instagram: 'https://instagram.com/luxuryrentals',
+            linkedin: 'https://linkedin.com/company/luxuryrentals',
+            facebook: 'https://facebook.com/luxuryrentals',
+            twitter: 'https://twitter.com/luxuryrentals',
+            youtube: 'https://youtube.com/@luxuryrentals'
+        };
+
+        /* ============================================
+           🏠 HOTELS CONFIGURATION BY ID
+           🎯 EASY EDIT SECTION - MODIFY INDIVIDUAL HOTELS
+           ============================================ */
+
+        // 🖼️ IMAGE URLS BY HOTEL ID
+        const HOTEL_IMAGES = {
+            1: [ // Modern Luxury Villa - Malibu
+                'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80'
+            ],
+            2: [ // Cozy Mountain Cabin - Aspen
+                'https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=800&q=80'
+            ],
+            3: [ // Beachfront Apartment - Miami
+                'https://images.unsplash.com/photo-1505873242700-f289a29e1e0f?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80'
+            ],
+            4: [ // Urban Loft - New York
+                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'
+            ],
+            5: [ // Desert Resort - Arizona
+                'https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=800&q=80',
+                'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=800&q=80'
+            ]
+        };
+
+        // 🎥 VIDEO URLS BY HOTEL ID
+        const HOTEL_VIDEOS = {
+            1: 'https://www.w3schools.com/html/mov_bbb.mp4', // Modern Luxury Villa
+            2: 'https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4', // Mountain Cabin
+            3: '', // No video for Beachfront Apartment
+            4: 'https://www.w3schools.com/html/movie.mp4', // Urban Loft
+            5: 'https://www.w3schools.com/html/mov_bbb.mp4'  // Desert Resort
+        };
+
+        // 🗺️ LOCATION DATA BY HOTEL ID (Longitude, Latitude)
+        const HOTEL_LOCATIONS = {
+            1: { // Modern Luxury Villa - Malibu, California
+                coordinates: [-118.7798, 34.0259],
+                address: 'Malibu, California, USA',
+                mapStyle: 'mapbox://styles/mapbox/satellite-streets-v12'
+            },
+            2: { // Cozy Mountain Cabin - Aspen, Colorado
+                coordinates: [-106.8175, 39.1911],
+                address: 'Aspen, Colorado, USA',
+                mapStyle: 'mapbox://styles/mapbox/outdoors-v12'
+            },
+            3: { // Beachfront Apartment - Miami Beach, Florida
+                coordinates: [-80.1300, 25.7907],
+                address: 'Miami Beach, Florida, USA',
+                mapStyle: 'mapbox://styles/mapbox/light-v11'
+            },
+            4: { // Urban Loft - New York, NY
+                coordinates: [-74.0060, 40.7128],
+                address: 'Manhattan, New York, USA',
+                mapStyle: 'mapbox://styles/mapbox/streets-v12'
+            },
+            5: { // Desert Resort - Arizona
+                coordinates: [-111.0937, 34.8697],
+                address: 'Sedona, Arizona, USA',
+                mapStyle: 'mapbox://styles/mapbox/outdoors-v12'
+            }
+        };
+
+        /* ============================================
+           🏠 HOTEL BASIC INFORMATION
+           ============================================ */
+        const HOTELS_DATA = [
+            {
+                id: 1,
+                title: 'Modern Luxury Villa',
+                location: 'Malibu, California',
+                host: 'Hosted by Sarah',
+                dates: 'Dec 15-20',
+                price: 250,
+                rating: 4.9,
+                reviews: 127,
+                description: 'Stunning oceanfront villa with panoramic views and premium amenities.',
+                amenities: ['Ocean View', 'Private Pool', 'WiFi', 'Parking']
+            },
+            {
+                id: 2,
+                title: 'Cozy Mountain Cabin',
+                location: 'Aspen, Colorado',
+                host: 'Hosted by Mike',
+                dates: 'Jan 5-12',
+                price: 180,
+                rating: 4.8,
+                reviews: 89,
+                description: 'Rustic charm meets modern comfort in this mountain retreat.',
+                amenities: ['Mountain View', 'Fireplace', 'Hot Tub', 'Ski Access']
+            },
+            {
+                id: 3,
+                title: 'Beachfront Apartment',
+                location: 'Miami Beach, Florida',
+                host: 'Hosted by Ana',
+                dates: 'Feb 10-17',
+                price: 320,
+                rating: 4.7,
+                reviews: 203,
+                description: 'Prime beachfront location with luxury amenities and stunning sunsets.',
+                amenities: ['Beach Access', 'Balcony', 'Gym', 'Concierge']
+            },
+            {
+                id: 4,
+                title: 'Urban Loft',
+                location: 'New York, NY',
+                host: 'Hosted by James',
+                dates: 'Mar 8-15',
+                price: 280,
+                rating: 4.6,
+                reviews: 156,
+                description: 'Stylish loft in the heart of Manhattan with modern amenities.',
+                amenities: ['City View', 'Modern Kitchen', 'Rooftop Access', 'Elevator']
+            },
+            {
+                id: 5,
+                title: 'Desert Resort Villa',
+                location: 'Sedona, Arizona',
+                host: 'Hosted by David',
+                dates: 'Apr 12-18',
+                price: 380,
+                rating: 4.9,
+                reviews: 98,
+                description: 'Luxury desert retreat with red rock views and spa amenities.',
+                amenities: ['Desert View', 'Private Spa', 'Pool', 'Hiking Trails']
+            }
+        ];
+
+        /* ============================================
+           🎨 WEBSITE SETTINGS
+           ============================================ */
+        const WEBSITE_CONFIG = {
+            siteName: 'Luxury Rentals',
+            heroTitle: 'Find Your Perfect Stay',
+            heroSubtitle: 'Discover unique homes and experiences around the world',
+            defaultMapboxToken: 'pk.YOUR_MAPBOX_TOKEN_HERE', // Replace with your token
+            autoCarouselInterval: 3000, // 3 seconds between image changes
+            autoCarouselPauseOnHover: true
+        };
+
+        /* ============================================
+           🔧 HELPER FUNCTIONS TO GET HOTEL DATA BY ID
+           ============================================ */
+        function getHotelImages(hotelId) {
+            return HOTEL_IMAGES[hotelId] || [];
+        }
+
+        function getHotelVideo(hotelId) {
+            return HOTEL_VIDEOS[hotelId] || '';
+        }
+
+        function getHotelLocation(hotelId) {
+            return HOTEL_LOCATIONS[hotelId] || { coordinates: [0, 0], address: 'Unknown Location' };
+        }
+
+        function hasHotelVideo(hotelId) {
+            return HOTEL_VIDEOS[hotelId] && HOTEL_VIDEOS[hotelId].trim() !== '';
+        }
+
+        // Combine all hotel data
+        function getCompleteHotelData() {
+            return HOTELS_DATA.map(hotel => ({
+                ...hotel,
+                images: getHotelImages(hotel.id),
+                videoUrl: getHotelVideo(hotel.id),
+                hasVideo: hasHotelVideo(hotel.id),
+                location: getHotelLocation(hotel.id)
+            }));
+        }
+    </script>
+
+    <!-- ============================================
+         HEADER NAVIGATION
+         ============================================ -->
+    
+    <header class="sticky top-0 z-50 header-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 hover-scale">
+                    <div class="w-10 h-10 rounded-xl gradient-primary animate-float"></div>
+                    <span class="text-xl font-bold text-contrast">Luxury Rentals</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="#properties" class="nav-link">Properties</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">About</a>
+                </nav>
+
+                <!-- Theme Toggle & User Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Switch -->
+                    <div class="theme-switch">
+                        <span id="sun-icon" class="text-lg">☀️</span>
+                        <div class="switch" id="theme-switch">
+                            <div class="switch-thumb"></div>
+                        </div>
+                        <span id="moon-icon" class="text-lg">🌙</span>
+                    </div>
+                    <span class="nav-link text-sm font-medium hover-scale">🌐 EN</span>
+                    <span class="nav-link text-sm font-medium hover-scale">👤 Account</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION - ENHANCED ANIMATIONS
+         ============================================ -->
+    
+    <section class="relative overflow-hidden hero-gradient">
+        <div class="hero-overlay"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 h-96 flex items-center">
+            <div class="text-white max-w-4xl">
+                
+                <!-- Hero Title & Subtitle -->
+                <h1 class="hero-title text-4xl md:text-6xl font-bold mb-4 leading-tight">
+                    Find Your Perfect Stay
+                </h1>
+                <p class="hero-subtitle text-xl md:text-2xl mb-8 opacity-95 leading-relaxed">
+                    Discover unique homes and luxury rental experiences around the world
+                </p>
+
+                <!-- Enhanced Search Form -->
+                <div class="hero-search">
+                    <h3 class="text-lg font-semibold mb-4">
+                        🔍 Where would you like to stay?
+                    </h3>
+                    
+                    <form id="search-form" class="space-y-4">
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <!-- Location Input -->
+                            <div class="flex-1">
+                                <input 
+                                    type="text" 
+                                    id="location-input"
+                                    placeholder="Enter city, state, or country..." 
+                                    class="w-full p-4 text-lg border-2 rounded-xl transition-all focus:border-primary focus:ring-4 focus:ring-primary/20"
+                                    required
+                                >
+                            </div>
+                            
+                            <!-- Search Button -->
+                            <button type="submit" class="btn-primary md:w-auto px-8 hover-lift">
+                                🔍 Search Properties
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Search Tips -->
+                    <div class="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="text-xs bg-white/10 text-white px-3 py-1 rounded-full backdrop-blur hover-scale">
+                            💡 Try "Malibu" or "Aspen"
+                        </span>
+                        <span class="text-xs bg-white/10 text-white px-3 py-1 rounded-full backdrop-blur hover-scale">
+                            🏖️ Beachfront properties
+                        </span>
+                        <span class="text-xs bg-white/10 text-white px-3 py-1 rounded-full backdrop-blur hover-scale">
+                            ⭐ Luxury locations only
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Decorative Elements -->
+        <div class="absolute top-20 right-20 w-20 h-20 bg-white/10 rounded-full blur-xl animate-float"></div>
+        <div class="absolute bottom-20 left-20 w-32 h-32 bg-white/5 rounded-full blur-2xl animate-pulse"></div>
+        <div class="absolute top-1/2 right-10 w-16 h-16 bg-white/5 rounded-full blur-lg animate-bounce"></div>
+    </section>
+
+    <!-- ============================================
+         PROPERTIES SECTION - ENHANCED WITH AUTO-CAROUSEL
+         ============================================ -->
+    
+    <section id="properties" class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center mb-12 reveal">
+            <h2 class="text-3xl md:text-4xl font-bold text-contrast mb-4 animate-fade-in">
+                Featured Properties
+            </h2>
+            <p class="text-lg text-muted-contrast max-w-2xl mx-auto animate-fade-in">
+                Handpicked luxury accommodations with exceptional service and premium amenities
+            </p>
+        </div>
+        
+        <div class="properties-grid" id="properties-grid">
+            <!-- Properties will be dynamically generated by JavaScript -->
+        </div>
+    </section>
+
+    <!-- ============================================
+         CONTACT SECTION - ENHANCED VISIBILITY
+         ============================================ -->
+    
+    <section id="contact" class="contact-section reveal">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-contrast mb-4 animate-fade-in">
+                    Get in Touch
+                </h2>
+                <p class="text-lg text-muted-contrast max-w-2xl mx-auto animate-fade-in">
+                    Ready to book your perfect luxury stay? We're here to help you find the ideal property.
+                </p>
+            </div>
+
+            <!-- Main Contact Card -->
+            <div class="contact-card mb-8 hover-lift">
+                <!-- Contact Icon -->
+                <div class="contact-icon-wrapper">
+                    <span>📧</span>
+                </div>
+
+                <h3 class="contact-title">Contact Our Team</h3>
+                <p class="contact-subtitle">
+                    Choose your preferred way to reach us - available 24/7 for your convenience
+                </p>
+
+                <!-- Contact Methods Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    
+                    <!-- WhatsApp Button -->
+                    <button 
+                        id="main-whatsapp-btn"
+                        class="btn-call h-14 text-white font-semibold text-lg hover-lift"
+                    >
+                        📱 WhatsApp Chat
+                    </button>
+
+                    <!-- Email Button -->
+                    <button 
+                        id="main-email-btn"
+                        class="btn-outline h-14 font-semibold text-lg hover-lift"
+                    >
+                        📧 Send Email
+                    </button>
+
+                    <!-- Phone Button -->
+                    <button 
+                        id="main-phone-btn"
+                        class="btn-outline h-14 font-semibold text-lg hover-lift"
+                    >
+                        📞 Call Now
+                    </button>
+                </div>
+
+                <!-- Contact Info Display -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-contrast border-t-2 border-t-border pt-6">
+                    <div class="flex items-center justify-center gap-2 hover-scale">
+                        <span>📞</span>
+                        <span id="display-phone">+1 (555) 123-4567</span>
+                    </div>
+                    <div class="flex items-center justify-center gap-2 hover-scale">
+                        <span>📧</span>
+                        <span id="display-email">roomforrent@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media Section -->
+            <div class="contact-card hover-lift">
+                <h4 class="text-xl font-semibold text-contrast mb-4">Follow Us</h4>
+                <p class="text-muted-contrast mb-6">
+                    Stay updated with our latest properties and exclusive offers
+                </p>
+                
+                <div class="flex justify-center gap-4 flex-wrap" id="social-icons">
+                    <!-- Social icons will be generated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER - ENHANCED
+         ============================================ -->
+    
+    <footer class="footer-bg">
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Brand Section -->
+                <div class="reveal">
+                    <div class="flex items-center space-x-3 mb-4 hover-scale">
+                        <div class="w-10 h-10 rounded-xl gradient-primary animate-pulse"></div>
+                        <span class="text-xl font-bold text-contrast">Luxury Rentals</span>
+                    </div>
+                    <p class="text-sm text-muted-contrast mb-6">
+                        Experience the world like never before with our curated selection of premium properties and exceptional hospitality.
+                    </p>
+                </div>
+
+                <!-- Support Links -->
+                <div class="reveal">
+                    <h4 class="font-semibold mb-4 text-contrast">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="footer-link">Help Center</a></li>
+                        <li><a href="#" class="footer-link">Safety Information</a></li>
+                        <li><a href="#" class="footer-link">Cancellation Options</a></li>
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Community Links -->
+                <div class="reveal">
+                    <h4 class="font-semibold mb-4 text-contrast">Community</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="footer-link">Diversity & Belonging</a></li>
+                        <li><a href="#" class="footer-link">Accessibility</a></li>
+                        <li><a href="#" class="footer-link">Partners</a></li>
+                        <li><a href="#" class="footer-link">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Host Links -->
+                <div class="reveal">
+                    <h4 class="font-semibold mb-4 text-contrast">Host</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="footer-link">Host Your Home</a></li>
+                        <li><a href="#" class="footer-link">Host Resources</a></li>
+                        <li><a href="#" class="footer-link">Responsible Hosting</a></li>
+                        <li><a href="#" class="footer-link">Join Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luxury Rentals. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+         ENHANCED FLOATING CONTACT BUTTON
+         ============================================ -->
+    
+    <button class="contact-fab" id="floating-contact" title="Contact us on WhatsApp">
+        💬
+    </button>
+
+    <!-- ============================================
+         VIDEO MODAL - ENHANCED
+         ============================================ -->
+    
+    <div id="video-modal" class="modal">
+        <div class="modal-content w-full max-w-4xl">
+            <div class="modal-header">
+                <h3 class="modal-title">Property Video Tour</h3>
+                <button id="close-video" class="close-button">&times;</button>
+            </div>
+            <div class="p-6">
+                <video id="property-video" controls class="w-full rounded-xl">
+                    <source src="" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         MAP MODAL - ENHANCED
+         ============================================ -->
+    
+    <div id="map-modal" class="modal">
+        <div class="modal-content w-full max-w-4xl">
+            <div class="modal-header">
+                <h3 class="modal-title">Property Location</h3>
+                <button id="close-map" class="close-button">&times;</button>
+            </div>
+            <div class="p-6">
+                <div id="map-container" class="w-full h-64 rounded-xl bg-muted flex items-center justify-center">
+                    <div class="text-center">
+                        <p class="text-muted-contrast mb-4">Enter your Mapbox token to view the interactive map</p>
+                        <input type="text" id="mapbox-token" placeholder="Mapbox Public Token" class="hero-search input mb-4 max-w-xs">
+                        <br>
+                        <button id="load-map" class="btn-secondary hover-lift">Load Map</button>
+                        <p class="text-xs text-muted-contrast mt-2">Get your free token at <a href="https://mapbox.com" target="_blank" class="footer-link">mapbox.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         🚀 ENHANCED JAVASCRIPT WITH AUTO-CAROUSEL
+         ALL WEBSITE FUNCTIONALITY
+         ============================================ -->
+
+    <script>
+        // Global variables
+        let propertyCards = [];
+        let currentProperty = null;
+        let mapboxToken = '';
+        let map = null;
+        let PROPERTIES = [];
+        
+        // Auto-carousel management
+        let autoCarouselIntervals = new Map();
+        let carouselPaused = new Map();
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🏠 Luxury Rentals App Initializing...');
+            
+            try {
+                // Get complete hotel data with all media URLs
+                PROPERTIES = getCompleteHotelData();
+                
+                initTheme();
+                initSearch();
+                initProperties();
+                initContact();
+                initModals();
+                initSmoothScrolling();
+                initScrollAnimations();
+                updateContactInfo();
+                
+                console.log('✅ App Loaded Successfully!');
+                console.log('📊 Loaded Hotels:', PROPERTIES);
+                showToast('Welcome to Luxury Rentals! 🏠✨', 'success');
+                
+            } catch (error) {
+                console.error('❌ Error initializing app:', error);
+                showToast('Sorry, there was an error loading the app.', 'error');
+            }
+        });
+
+        /* ============================================
+           🎨 ENHANCED THEME TOGGLE
+           ============================================ */
+        
+        function initTheme() {
+            const themeSwitch = document.getElementById('theme-switch');
+            const sunIcon = document.getElementById('sun-icon');
+            const moonIcon = document.getElementById('moon-icon');
+            
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            let isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+            
+            function updateTheme() {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    themeSwitch.classList.add('checked');
+                    sunIcon.style.opacity = '0.5';
+                    moonIcon.style.opacity = '1';
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    themeSwitch.classList.remove('checked');
+                    sunIcon.style.opacity = '1';
+                    moonIcon.style.opacity = '0.5';
+                }
+            }
+            
+            updateTheme();
+            
+            themeSwitch.addEventListener('click', () => {
+                isDark = !isDark;
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateTheme();
+                themeSwitch.classList.add('animate-wiggle');
+                setTimeout(() => themeSwitch.classList.remove('animate-wiggle'), 500);
+                showToast(`Switched to ${isDark ? 'dark 🌙' : 'light ☀️'} mode!`, 'info');
+            });
+        }
+
+        /* ============================================
+           🔍 ENHANCED SEARCH FUNCTIONALITY
+           ============================================ */
+        
+        function initSearch() {
+            const searchForm = document.getElementById('search-form');
+            const locationInput = document.getElementById('location-input');
+            
+            // Add input animation
+            locationInput.addEventListener('focus', () => {
+                locationInput.classList.add('animate-pulse');
+            });
+            
+            locationInput.addEventListener('blur', () => {
+                locationInput.classList.remove('animate-pulse');
+            });
+            
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const query = locationInput.value.trim().toLowerCase();
+                
+                if (!query) {
+                    showToast('Please enter a location to search! 📍', 'warning');
+                    locationInput.classList.add('animate-wiggle');
+                    setTimeout(() => locationInput.classList.remove('animate-wiggle'), 500);
+                    return;
+                }
+                
+                console.log('🔍 Searching for:', query);
+                
+                // Filter properties based on location
+                const filteredProperties = PROPERTIES.filter(property => 
+                    property.location.toLowerCase().includes(query) ||
+                    property.title.toLowerCase().includes(query)
+                );
+                
+                if (filteredProperties.length > 0) {
+                    displayProperties(filteredProperties);
+                    document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+                    showToast(`Found ${filteredProperties.length} properties! 🎉`, 'success');
+                } else {
+                    displayProperties(PROPERTIES); // Show all if no matches
+                    showToast('No exact matches found. Showing all properties! 🏠', 'info');
+                    document.getElementById('properties').scrollIntoView({ behavior: 'smooth' });
+                }
+                
+                // Reset search form with animation
+                locationInput.value = '';
+                locationInput.classList.add('animate-bounce');
+                setTimeout(() => locationInput.classList.remove('animate-bounce'), 1000);
+            });
+        }
+
+        /* ============================================
+           🏠 ENHANCED PROPERTIES WITH AUTO-CAROUSEL
+           ============================================ */
+        
+        function initProperties() {
+            displayProperties(PROPERTIES);
+        }
+        
+        function displayProperties(properties) {
+            const grid = document.getElementById('properties-grid');
+            grid.innerHTML = '';
+            
+            // Clear existing intervals
+            autoCarouselIntervals.forEach(interval => clearInterval(interval));
+            autoCarouselIntervals.clear();
+            carouselPaused.clear();
+            
+            properties.forEach((property, index) => {
+                const card = createPropertyCard(property, index);
+                grid.appendChild(card);
+                
+                // Initialize auto-carousel for this property
+                if (property.images.length > 1) {
+                    initAutoCarousel(property.id);
+                }
+            });
+            
+            propertyCards = Array.from(grid.children);
+            console.log(`📋 Displayed ${properties.length} properties with auto-carousel`);
+        }
+        
+        function createPropertyCard(property, index) {
+            const card = document.createElement('div');
+            card.className = 'property-card fade-in reveal-scale';
+            card.style.animationDelay = `${index * 0.15}s`;
+            card.dataset.propertyId = property.id;
+            
+            const videoButton = property.hasVideo 
+                ? `<button class="btn-secondary video-btn hover-lift" data-property-id="${property.id}">🎥 Video Tour</button>`
+                : `<button class="btn-secondary" disabled style="opacity: 0.5;">🎥 No Video</button>`;
+            
+            const carouselIndicator = property.images.length > 1 
+                ? `<div class="carousel-indicator" id="carousel-indicator-${property.id}">🔄 Auto</div>` 
+                : '';
+            
+            card.innerHTML = `
+                <div class="property-images" data-property-id="${property.id}">
+                    ${carouselIndicator}
+                    ${property.images.map((img, imgIndex) => 
+                        `<img src="${img}" alt="${property.title}" class="property-image ${imgIndex === 0 ? 'active' : ''}" loading="lazy">`
+                    ).join('')}
+                    
+                    ${property.images.length > 1 ? `
+                        <button class="nav-arrow prev hover-scale" onclick="previousImage(${property.id})">‹</button>
+                        <button class="nav-arrow next hover-scale" onclick="nextImage(${property.id})">›</button>
+                    ` : ''}
+                    
+                    ${property.images.length > 1 ? `
+                        <div class="image-dots">
+                            ${property.images.map((_, dotIndex) => 
+                                `<div class="image-dot hover-scale ${dotIndex === 0 ? 'active' : ''}" onclick="showImage(${property.id}, ${dotIndex})"></div>`
+                            ).join('')}
+                        </div>
+                    ` : ''}
+                </div>
+                
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2 hover-scale">${property.title}</h3>
+                            <p class="text-sm text-muted-contrast mb-2">${property.location}</p>
+                            <p class="text-sm text-muted-contrast">${property.host} • ${property.dates}</p>
+                        </div>
+                        <div class="rating hover-scale">
+                            ⭐ ${property.rating} (${property.reviews})
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-muted-contrast mb-4">${property.description}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${property.amenities.map(amenity => 
+                            `<span class="amenity-tag hover-scale">${amenity}</span>`
+                        ).join('')}
+                    </div>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="price text-lg hover-scale">
+                            <strong>$${property.price}</strong> / night
+                        </div>
+                        <div class="space-x-2">
+                            <button class="btn-call hover-lift" onclick="contactForProperty(${property.id})">📞 Call Now</button>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 gap-2">
+                        ${videoButton}
+                        <button class="btn-outline map-btn hover-lift" data-property-id="${property.id}">🗺️ View Map</button>
+                    </div>
+                </div>
+            `;
+            
+            // Add hover event listeners for carousel control
+            const imagesContainer = card.querySelector('.property-images');
+            if (imagesContainer && property.images.length > 1) {
+                imagesContainer.addEventListener('mouseenter', () => pauseAutoCarousel(property.id));
+                imagesContainer.addEventListener('mouseleave', () => resumeAutoCarousel(property.id));
+            }
+            
+            // Add event listeners
+            const videoBtn = card.querySelector('.video-btn');
+            if (videoBtn) {
+                videoBtn.addEventListener('click', () => openVideoModal(property.id));
+            }
+            
+            const mapBtn = card.querySelector('.map-btn');
+            mapBtn.addEventListener('click', () => openMapModal(property.id));
+            
+            return card;
+        }
+
+        /* ============================================
+           🎠 AUTO-CAROUSEL FUNCTIONALITY
+           ============================================ */
+        
+        function initAutoCarousel(propertyId) {
+            if (!WEBSITE_CONFIG.autoCarouselInterval) return;
+            
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property || property.images.length <= 1) return;
+            
+            currentImages[propertyId] = 0;
+            carouselPaused.set(propertyId, false);
+            
+            const intervalId = setInterval(() => {
+                if (!carouselPaused.get(propertyId)) {
+                    nextImageAuto(propertyId);
+                }
+            }, WEBSITE_CONFIG.autoCarouselInterval);
+            
+            autoCarouselIntervals.set(propertyId, intervalId);
+            
+            console.log(`🎠 Auto-carousel initialized for property ${propertyId}`);
+        }
+        
+        function pauseAutoCarousel(propertyId) {
+            carouselPaused.set(propertyId, true);
+            const indicator = document.getElementById(`carousel-indicator-${propertyId}`);
+            if (indicator) {
+                indicator.textContent = '⏸️ Paused';
+                indicator.parentElement.classList.add('carousel-paused');
+            }
+            console.log(`⏸️ Carousel paused for property ${propertyId}`);
+        }
+        
+        function resumeAutoCarousel(propertyId) {
+            carouselPaused.set(propertyId, false);
+            const indicator = document.getElementById(`carousel-indicator-${propertyId}`);
+            if (indicator) {
+                indicator.textContent = '🔄 Auto';
+                indicator.parentElement.classList.remove('carousel-paused');
+            }
+            console.log(`▶️ Carousel resumed for property ${propertyId}`);
+        }
+        
+        function nextImageAuto(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            if (!currentImages[propertyId]) currentImages[propertyId] = 0;
+            
+            currentImages[propertyId] = currentImages[propertyId] < property.images.length - 1 
+                ? currentImages[propertyId] + 1 
+                : 0;
+            
+            updateImageDisplay(propertyId);
+        }
+
+        /* ============================================
+           🖼️ ENHANCED IMAGE CAROUSEL FUNCTIONALITY
+           ============================================ */
+        
+        let currentImages = {};
+        
+        function previousImage(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            // Temporarily pause auto-carousel
+            pauseAutoCarousel(propertyId);
+            setTimeout(() => resumeAutoCarousel(propertyId), 5000); // Resume after 5 seconds
+            
+            if (!currentImages[propertyId]) currentImages[propertyId] = 0;
+            
+            currentImages[propertyId] = currentImages[propertyId] > 0 
+                ? currentImages[propertyId] - 1 
+                : property.images.length - 1;
+            
+            updateImageDisplay(propertyId);
+            showToast('⬅️ Previous image', 'info');
+        }
+        
+        function nextImage(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            // Temporarily pause auto-carousel
+            pauseAutoCarousel(propertyId);
+            setTimeout(() => resumeAutoCarousel(propertyId), 5000); // Resume after 5 seconds
+            
+            if (!currentImages[propertyId]) currentImages[propertyId] = 0;
+            
+            currentImages[propertyId] = currentImages[propertyId] < property.images.length - 1 
+                ? currentImages[propertyId] + 1 
+                : 0;
+            
+            updateImageDisplay(propertyId);
+            showToast('➡️ Next image', 'info');
+        }
+        
+        function showImage(propertyId, imageIndex) {
+            // Temporarily pause auto-carousel
+            pauseAutoCarousel(propertyId);
+            setTimeout(() => resumeAutoCarousel(propertyId), 5000); // Resume after 5 seconds
+            
+            currentImages[propertyId] = imageIndex;
+            updateImageDisplay(propertyId);
+            showToast(`📷 Image ${imageIndex + 1}`, 'info');
+        }
+        
+        function updateImageDisplay(propertyId) {
+            const propertyCard = document.querySelector(`[data-property-id="${propertyId}"]`);
+            
+            if (!propertyCard) return;
+            
+            const images = propertyCard.querySelectorAll('.property-image');
+            const dots = propertyCard.querySelectorAll('.image-dot');
+            const currentIndex = currentImages[propertyId] || 0;
+            
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === currentIndex);
+                if (index === currentIndex) {
+                    img.style.animation = 'fadeInScale 0.5s ease-out';
+                    setTimeout(() => img.style.animation = '', 500);
+                }
+            });
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+                if (index === currentIndex) {
+                    dot.style.animation = 'heartbeat 0.6s ease-in-out';
+                    setTimeout(() => dot.style.animation = '', 600);
+                }
+            });
+        }
+
+        /* ============================================
+           🎥 ENHANCED VIDEO MODAL
+           ============================================ */
+        
+        function openVideoModal(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property || !property.hasVideo) {
+                showToast('Sorry, no video available for this property! 🎥', 'warning');
+                return;
+            }
+            
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('property-video');
+            const title = modal.querySelector('.modal-title');
+            
+            title.textContent = `${property.title} - Video Tour`;
+            video.src = property.videoUrl;
+            
+            modal.classList.add('active');
+            currentProperty = property;
+            
+            // Add loading animation
+            video.addEventListener('loadstart', () => {
+                showToast('Loading video... 📼', 'info');
+            });
+            
+            video.addEventListener('canplay', () => {
+                showToast('Video ready! 🎬', 'success');
+            });
+            
+            console.log('🎥 Opening video for:', property.title);
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const video = document.getElementById('property-video');
+            
+            modal.classList.remove('active');
+            video.pause();
+            video.src = '';
+            currentProperty = null;
+            
+            showToast('Video closed 📺', 'info');
+        }
+
+        /* ============================================
+           🗺️ ENHANCED MAP MODAL
+           ============================================ */
+        
+        function openMapModal(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            const modal = document.getElementById('map-modal');
+            const title = modal.querySelector('.modal-title');
+            
+            title.textContent = `${property.title} - Location`;
+            modal.classList.add('active');
+            currentProperty = property;
+            
+            console.log('🗺️ Opening map for:', property.title, property.location);
+            showToast(`Showing location for ${property.title}! 📍`, 'info');
+        }
+        
+        function loadMap() {
+            const tokenInput = document.getElementById('mapbox-token');
+            const token = tokenInput.value.trim();
+            
+            if (!token) {
+                showToast('Please enter your Mapbox token! 🔑', 'warning');
+                tokenInput.classList.add('animate-wiggle');
+                setTimeout(() => tokenInput.classList.remove('animate-wiggle'), 500);
+                return;
+            }
+            
+            if (!currentProperty) {
+                showToast('No property selected! 🏠', 'error');
+                return;
+            }
+            
+            mapboxToken = token;
+            localStorage.setItem('mapboxToken', token);
+            
+            try {
+                mapboxgl.accessToken = token;
+                
+                const mapContainer = document.getElementById('map-container');
+                mapContainer.innerHTML = '';
+                
+                const locationData = currentProperty.location;
+                const coordinates = locationData.coordinates;
+                const mapStyle = locationData.mapStyle || 'mapbox://styles/mapbox/streets-v12';
+                
+                map = new mapboxgl.Map({
+                    container: mapContainer,
+                    style: mapStyle,
+                    center: coordinates,
+                    zoom: 14,
+                    pitch: 45,
+                    bearing: 0
+                });
+                
+                // Add enhanced marker
+                const markerElement = document.createElement('div');
+                markerElement.className = 'animate-bounce';
+                markerElement.innerHTML = '🏠';
+                markerElement.style.fontSize = '2rem';
+                
+                new mapboxgl.Marker({ element: markerElement, color: '#FF6B35' })
+                    .setLngLat(coordinates)
+                    .setPopup(new mapboxgl.Popup({ className: 'custom-popup' }).setHTML(`
+                        <div class="p-3">
+                            <h3 class="font-semibold text-lg mb-2">${currentProperty.title}</h3>
+                            <p class="text-sm mb-2">${locationData.address}</p>
+                            <p class="text-xs text-gray-600">📍 Lat: ${coordinates[1].toFixed(4)}, Lng: ${coordinates[0].toFixed(4)}</p>
+                        </div>
+                    `))
+                    .addTo(map);
+                
+                // Add navigation controls
+                map.addControl(new mapboxgl.NavigationControl());
+                map.addControl(new mapboxgl.FullscreenControl());
+                
+                // Add loading animation
+                map.on('load', () => {
+                    showToast(`Map loaded successfully! 🗺️`, 'success');
+                });
+                
+            } catch (error) {
+                console.error('Map loading error:', error);
+                showToast('Failed to load map. Please check your token! ❌', 'error');
+            }
+        }
+        
+        function closeMapModal() {
+            const modal = document.getElementById('map-modal');
+            modal.classList.remove('active');
+            
+            if (map) {
+                map.remove();
+                map = null;
+            }
+            
+            currentProperty = null;
+            showToast('Map closed 🗺️', 'info');
+        }
+
+        /* ============================================
+           📞 ENHANCED CONTACT FUNCTIONALITY
+           ============================================ */
+        
+        function initContact() {
+            // Main contact buttons with animations
+            document.getElementById('main-whatsapp-btn').addEventListener('click', () => {
+                window.open(SOCIAL_LINKS.whatsapp, '_blank');
+                showToast('Opening WhatsApp! 📱✨', 'success');
+            });
+            
+            document.getElementById('main-email-btn').addEventListener('click', () => {
+                window.location.href = `mailto:${CONTACT_INFO.email}?subject=Luxury Rental Inquiry`;
+                showToast('Opening email client! 📧✨', 'success');
+            });
+            
+            document.getElementById('main-phone-btn').addEventListener('click', () => {
+                window.location.href = `tel:${CONTACT_INFO.phone}`;
+                showToast('Initiating phone call! 📞✨', 'success');
+            });
+            
+            // Enhanced floating contact button
+            document.getElementById('floating-contact').addEventListener('click', () => {
+                window.open(SOCIAL_LINKS.whatsapp, '_blank');
+                showToast('Opening WhatsApp chat! 💬✨', 'success');
+            });
+            
+            // Generate social media icons
+            generateSocialIcons();
+        }
+        
+        function contactForProperty(propertyId) {
+            const property = PROPERTIES.find(p => p.id === propertyId);
+            if (!property) return;
+            
+            const message = `Hi! I'm interested in "${property.title}" in ${property.location}. Could you provide more information about availability and pricing?`;
+            const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`;
+            
+            window.open(whatsappUrl, '_blank');
+            showToast(`Contacting about ${property.title}! 📱✨`, 'success');
+        }
+        
+        function updateContactInfo() {
+            document.getElementById('display-phone').textContent = CONTACT_INFO.phone;
+            document.getElementById('display-email').textContent = CONTACT_INFO.email;
+        }
+        
+        function generateSocialIcons() {
+            const container = document.getElementById('social-icons');
+            const socialPlatforms = [
+                { name: 'whatsapp', icon: '📱', url: SOCIAL_LINKS.whatsapp },
+                { name: 'instagram', icon: '📸', url: SOCIAL_LINKS.instagram },
+                { name: 'facebook', icon: '👤', url: SOCIAL_LINKS.facebook },
+                { name: 'twitter', icon: '🐦', url: SOCIAL_LINKS.twitter },
+                { name: 'linkedin', icon: '💼', url: SOCIAL_LINKS.linkedin },
+                { name: 'youtube', icon: '🎥', url: SOCIAL_LINKS.youtube }
+            ];
+            
+            container.innerHTML = socialPlatforms.map((platform, index) => `
+                <a href="${platform.url}" target="_blank" 
+                   class="social-icon ${platform.name} hover-lift" 
+                   style="animation-delay: ${index * 0.1}s"
+                   title="Follow us on ${platform.name.charAt(0).toUpperCase() + platform.name.slice(1)}">
+                    ${platform.icon}
+                </a>
+            `).join('');
+        }
+
+        /* ============================================
+           🎯 ENHANCED MODAL MANAGEMENT
+           ============================================ */
+        
+        function initModals() {
+            // Video modal controls
+            document.getElementById('close-video').addEventListener('click', closeVideoModal);
+            
+            // Map modal controls
+            document.getElementById('close-map').addEventListener('click', closeMapModal);
+            document.getElementById('load-map').addEventListener('click', loadMap);
+            
+            // Load saved Mapbox token
+            const savedToken = localStorage.getItem('mapboxToken');
+            if (savedToken) {
+                document.getElementById('mapbox-token').value = savedToken;
+            }
+            
+            // Enhanced modal interactions
+            document.addEventListener('click', (e) => {
+                const videoModal = document.getElementById('video-modal');
+                const mapModal = document.getElementById('map-modal');
+                
+                if (e.target === videoModal) {
+                    closeVideoModal();
+                }
+                if (e.target === mapModal) {
+                    closeMapModal();
+                }
+            });
+            
+            // Enhanced keyboard shortcuts
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeVideoModal();
+                    closeMapModal();
+                    showToast('Modal closed with Escape ⌨️', 'info');
+                }
+            });
+        }
+
+        /* ============================================
+           🎬 ENHANCED SMOOTH SCROLLING
+           ============================================ */
+        
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start',
+                            inline: 'nearest'
+                        });
+                        
+                        // Add highlight animation to target
+                        target.style.animation = 'pulse 1s ease-in-out';
+                        setTimeout(() => target.style.animation = '', 1000);
+                        
+                        showToast(`Scrolled to ${this.textContent} 📍`, 'info');
+                    }
+                });
+            });
+        }
+
+        /* ============================================
+           👁️ SCROLL ANIMATIONS (INTERSECTION OBSERVER)
+           ============================================ */
+        
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for scroll animations
+            document.querySelectorAll('.reveal, .reveal-scale').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        /* ============================================
+           🍞 ENHANCED TOAST NOTIFICATIONS
+           ============================================ */
+        
+        function showToast(message, type = 'info') {
+            const toastContainer = document.getElementById('toast-container') || createToastContainer();
+            
+            const toast = document.createElement('div');
+            const colors = {
+                success: 'bg-green-500 border-green-600',
+                error: 'bg-red-500 border-red-600',
+                warning: 'bg-yellow-500 border-yellow-600',
+                info: 'bg-blue-500 border-blue-600'
+            };
+            
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: 'ℹ️'
+            };
+            
+            toast.className = `toast ${colors[type]} text-white px-6 py-4 rounded-xl shadow-lg border-2 transition-all duration-300 transform translate-x-full mb-4 flex items-center gap-3 backdrop-blur-sm`;
+            toast.innerHTML = `
+                <span class="text-xl">${icons[type]}</span>
+                <span class="font-medium">${message}</span>
+                <button class="ml-auto text-white hover:bg-white/20 rounded-full p-1 transition-colors" onclick="this.parentElement.remove()">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M6.28 5.22a.75.75 0 00-1.06 1.06L8.94 10l-3.72 3.72a.75.75 0 101.06 1.06L10 11.06l3.72 3.72a.75.75 0 101.06-1.06L11.06 10l3.72-3.72a.75.75 0 00-1.06-1.06L10 8.94 6.28 5.22z"/>
+                    </svg>
+                </button>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Animate in
+            setTimeout(() => {
+                toast.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Auto remove
+            setTimeout(() => {
+                toast.style.animation = 'slideOutRight 0.3s ease forwards';
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+        
+        function createToastContainer() {
+            const container = document.createElement('div');
+            container.id = 'toast-container';
+            container.className = 'fixed top-4 right-4 z-[10001] flex flex-col-reverse max-w-sm';
+            document.body.appendChild(container);
+            return container;
+        }
+
+        /* ============================================
+           📱 ENHANCED RESPONSIVE UTILITIES
+           ============================================ */
+        
+        // Enhanced navigation hiding on mobile scroll
+        let lastScrollY = 0;
+        let scrollTimeout;
+        
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            const currentScrollY = window.scrollY;
+            
+            clearTimeout(scrollTimeout);
+            
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+                header.style.opacity = '0.9';
+            } else {
+                header.style.transform = 'translateY(0)';
+                header.style.opacity = '1';
+            }
+            
+            // Add scroll indicator
+            const scrollProgress = (currentScrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            header.style.setProperty('--scroll-progress', `${scrollProgress}%`);
+            
+            lastScrollY = currentScrollY;
+            
+            // Debounce scroll events
+            scrollTimeout = setTimeout(() => {
+                // Add any scroll-end functionality here
+            }, 150);
+        });
+
+        /* ============================================
+           ⚡ PERFORMANCE OPTIMIZATIONS
+           ============================================ */
+        
+        // Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        img.classList.remove('loading');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                img.classList.add('loading');
+                imageObserver.observe(img);
+            });
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            // Clear all intervals
+            autoCarouselIntervals.forEach(interval => clearInterval(interval));
+            autoCarouselIntervals.clear();
+            
+            // Remove event listeners
+            document.removeEventListener('scroll', arguments.callee);
+            
+            console.log('🧹 Cleaned up resources');
+        });
+
+        console.log('🎉 Enhanced Luxury Rentals JavaScript Loaded Successfully with Auto-Carousel!');
+        console.log('🎠 Auto-carousel will change images every', WEBSITE_CONFIG.autoCarouselInterval / 1000, 'seconds');
+        console.log('⏸️ Hover over property images to pause auto-carousel');
+    </script>
+</body>
+</html>
